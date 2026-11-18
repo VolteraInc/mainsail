@@ -155,6 +155,8 @@ import BaseMixin from '@/components/mixins/base'
 import ControlMixin from '@/components/mixins/control'
 import { mdiEngineOff, mdiHome } from '@mdi/js'
 
+const FINE_XY_STEP_MM = 0.01
+
 @Component
 export default class BarsControl extends Mixins(BaseMixin, ControlMixin) {
     mdiEngineOff = mdiEngineOff
@@ -165,13 +167,13 @@ export default class BarsControl extends Mixins(BaseMixin, ControlMixin) {
     }
 
     get stepsXYsorted() {
-        return [...this.$store.state.gui.control.stepsXY].sort(function (a, b) {
+        return [...new Set([...this.$store.state.gui.control.stepsXY, FINE_XY_STEP_MM])].sort(function (a, b) {
             return b - a
         })
     }
 
     get stepsXYsortedReverse() {
-        return [...this.$store.state.gui.control.stepsXY].sort(function (a, b) {
+        return [...new Set([...this.$store.state.gui.control.stepsXY, FINE_XY_STEP_MM])].sort(function (a, b) {
             return a - b
         })
     }

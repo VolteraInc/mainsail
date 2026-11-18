@@ -1085,6 +1085,24 @@
             "SaveInfoDescription": "The new Z-Offset has been calculated and registered. Click on \"SAVE CONFIG\" to save it to the printer.cfg and restart Klipper.",
             "SaveInfoDescriptionPrint": "The new Z-Offset has been calculated and registered. After printing, click on \"SAVE CONFIG\" in the top bar to save it to the printer.cfg and restart Klipper.",
             "SaveInfoHeadline": "Information"
+        },
+        "ZRotationPanel": {
+            "Advance": "Advance",
+            "Amount": "Amount",
+            "Angle": "Angle",
+            "AugerHint": "Dispenser attached: this turns the auger. Advance pushes paste out.",
+            "Clockwise": "CW",
+            "Counterclockwise": "CCW",
+            "Headline": "Z rotation",
+            "MinimumAmount": "Enter a number of at least {minimum}.",
+            "Negative": "−",
+            "NoHeadHint": "No head detected: the motor keeps the last head's units (° or µl).",
+            "NozzleHint": "Direction viewed from above.",
+            "Positive": "+",
+            "Presets": "{amount} presets",
+            "Retract": "Retract",
+            "Speed": "Speed",
+            "Volume": "Volume"
         }
     },
     "PowerDeviceChangeDialog": {

@@ -95,6 +95,11 @@
         <v-container v-if="showZOffset">
             <zoffset-control />
         </v-container>
+        <!-- Z-ROTATION CONTROL -->
+        <v-divider v-if="showZRotation" />
+        <v-container v-if="showZRotation">
+            <z-rotation-control />
+        </v-container>
         <!-- SPEED FACTOR -->
         <v-divider v-if="showSpeedFactor" />
         <v-container v-if="showSpeedFactor">
@@ -125,6 +130,7 @@ import MoveToControl from '@/components/panels/ToolheadControls/MoveToControl.vu
 import Panel from '@/components/ui/Panel.vue'
 import ToolSlider from '@/components/inputs/ToolSlider.vue'
 import ZoffsetControl from '@/components/panels/ToolheadControls/ZoffsetControl.vue'
+import ZRotationControl from '@/components/panels/ToolheadControls/ZRotationControl.vue'
 import { mdiDotsVertical, mdiEngineOff, mdiGamepad, mdiSpeedometer, mdiMenuDown, mdiRestore } from '@mdi/js'
 
 @Component({
@@ -136,6 +142,7 @@ import { mdiDotsVertical, mdiEngineOff, mdiGamepad, mdiSpeedometer, mdiMenuDown,
         Panel,
         ToolSlider,
         ZoffsetControl,
+        ZRotationControl,
     },
 })
 export default class ToolheadControlPanel extends Mixins(BaseMixin, ControlMixin) {
@@ -184,6 +191,10 @@ export default class ToolheadControlPanel extends Mixins(BaseMixin, ControlMixin
 
     get showSpeedFactor(): boolean {
         return this.$store.state.gui.view.toolhead.showSpeedFactor ?? true
+    }
+
+    get showZRotation(): boolean {
+        return 'ROTATE' in (this.$store.state.printer.gcode?.commands ?? {})
     }
 }
 </script>
